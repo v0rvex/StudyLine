@@ -9,9 +9,9 @@ COPY . .
 RUN npm run build
 
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
-ENV PORT 80
+ENV PORT 8080
 RUN sed -i "s/listen       80;/listen       $PORT;/" /etc/nginx/conf.d/default.conf
 
 EXPOSE $PORT
