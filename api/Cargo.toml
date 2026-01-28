@@ -1,0 +1,23 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+argon2 = "0.5.3"
+async-trait = "0.1.89"
+axum = "0.8.4"
+dotenv = "0.15.0"
+rand = { version = "0.8" }
+redis = { version = "0.32.6", features = ["tokio-comp"]}
+serde = "1.0.225"
+sqlx = { version = "0.7", features = ["mysql", "runtime-tokio-native-tls", "macros", "chrono"] }
+thiserror = "2.0.16"
+tokio = { version = "1.47.1", features = ["full"] }
+utoipa = { version = "5.4.0", features = ["chrono"] }
+utoipa-swagger-ui = { version = "9.0.2", features = ["axum"] }
+uuid = { version = "1.18.1", features = ["v4"] }
+reqwest = { version = "0.12", features = ["json"] }
+chrono = { version = "0.4", features = ["serde"]}
+fcm-service = "0.2.3"
+tower-http = {version = "0.6.6", features = ["cors"]}

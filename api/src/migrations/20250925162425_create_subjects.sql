@@ -1,0 +1,6 @@
+CREATE TABLE subjects (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(500) NOT NULL,
+    group_id BIGINT NOT NULL,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE
+);

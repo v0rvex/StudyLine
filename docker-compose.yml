@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  db:
+    image: mariadb:11
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: college
+      MARIADB_USER: app
+      MARIADB_PASSWORD: app
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6380:6379"
+
+  backend:
+    build: ./api
+    container_name: backend
+    env_file:
+      - ./api/.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    command: ./api
+
+  frontend:
+    build: ./studyline-front
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: http://backend:8080
+
+volumes:
+  db_data:
+
+

@@ -1,0 +1,67 @@
+/* === ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ === */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card: #f0f0f0;
+  --border: #cccccc;
+  --accent: #000000;
+  --accent-hover: #333333;
+  --transition: 0.25s ease;
+}
+
+[data-theme='dark'] {
+  --bg: #0e0e0e;
+  --text: #f2f2f2;
+  --card: #1a1a1a;
+  --border: #2e2e2e;
+  --accent: #f2f2f2;
+  --accent-hover: #cccccc;
+}
+
+/* === БАЗОВЫЙ RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color var(--transition), color var(--transition), border var(--transition);
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+button, input, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* === АНИМАЦИИ === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* === ФОКУС / ХОВЕР === */
+.input:focus {
+  border-color: var(--accent);
+}
+
+.btn:hover, .nav-btn:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
+
+

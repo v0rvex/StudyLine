@@ -1,0 +1,418 @@
+/* === КОМПОНЕНТНЫЕ СТИЛИ === */
+
+/* Контейнер и карточки */
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Верхний бар */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  z-index: 100;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header .logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Нижний навбар */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 99;
+  animation: fadeIn 0.3s ease;
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bottom-nav button.active {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* Кнопки и инпуты */
+.btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.25s ease;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Модальное окно */
+.modal-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 320px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Шестерёнка и дропдаун */
+.settings {
+  position: relative;
+}
+
+.gear-btn {
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 22px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 160px;
+  padding: 8px 0;
+  z-index: 50;
+}
+
+.dropdown button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 10px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown button:hover {
+  background: var(--border);
+}
+
+/* Таблицы расписания */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.day-cell {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pair {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: var(--bg);
+}
+
+.dragging {
+  opacity: 0.7;
+  transform: scale(1.03);
+}
+
+/* island bottom nav */
+.bottom-island {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transition: transform .35s cubic-bezier(.2,.9,.2,1), opacity .35s;
+}
+.island-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color: var(--text);
+  transition: transform .18s, color .18s;
+}
+.island-btn .icon { display:flex; align-items:center; justify-content:center }
+.island-btn:hover { transform: translateY(-4px) scale(1.05); color: var(--accent) }
+.island-btn.active { color: var(--accent); transform: translateY(-6px) scale(1.12) }
+
+/* ensure header space, so content doesn't go under header */
+body { padding-top: 64px; padding-bottom: 96px; }
+
+/* modal tweaks (already present) */
+.modal { max-width: 560px; }
+.modal-bg { display:flex; align-items:center; justify-content:center; }
+
+/* pencil button */
+.nav-btn { min-width: 36px; min-height: 36px; display:inline-grid; place-items:center }
+
+/*shift switch */
+
+.switch-container {
+  scale: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.switch-wrapper {
+  width: 100%;
+}
+
+.switch-button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: var(--bg);
+  border-radius: 32px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  outline: none;
+}
+
+.switch-button:hover {
+  background-color: var(--bg);
+}
+
+.switch-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--accent);
+  border-radius: 32px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+.switch-slider.active {
+  transform: translateX(100%);
+}
+
+.switch-icons {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  z-index: 10;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.icon {
+  transition: color 0.3s ease;
+}
+
+.icon-active {
+  color: var(--bg);
+}
+
+.icon-inactive {
+  color: var(--accent);
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.select-input {
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 6px;
+  background: var(--bg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.placeholder {
+  opacity: 0.6;
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  z-index: 9999;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.select-search {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.select-options {
+  max-height: 180px;    /* ← скролл */
+  overflow-y: auto;
+}
+
+.select-option {
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.select-option:hover {
+  background: var(--hover);
+}
+
+.select-empty {
+  opacity: 0.5;
+  padding: 6px;
+  text-align: center;
+}
+
+/* Стили для чекбоксов StudyLine */
+.select_checkbox {
+  appearance: none; /* убираем стандартный стиль браузера */
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent); /* синий основной цвет */
+  border-radius: 6px;
+  background-color: var(--card);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+
+}
+
+.select_checkbox:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.select_checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  border-color: var(--bg);
+
+}
+
