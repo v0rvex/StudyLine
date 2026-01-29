@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949763570083",
+    "project_id": "college-schedule-59b6c",
+    "storage_bucket": "college-schedule-59b6c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949763570083:android:6e9d79f987ae30dfb60216",
+        "android_client_info": {
+          "package_name": "com.vorvex.college_schedule"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2IWo9Xq2gc8Rlq2kczbPBfsD0JAG-NKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
