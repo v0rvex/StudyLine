@@ -37,7 +37,7 @@ async fn main() {
     migrate!("src/migrations").run(&app_state.db.db).await;
 
     let cors = CorsLayer::new()
-        .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+        .allow_origin("http://127.0.0.1:3000".parse::<HeaderValue>().unwrap())
         .allow_headers([AUTHORIZATION, CONTENT_TYPE, ACCEPT])
         .allow_methods([
             axum::http::Method::GET,
