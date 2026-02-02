@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y ca-certificates curl && rm -rf /var/lib
 
 COPY --from=builder /app/target/release/api /app/api
 
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=1200
+EXPOSE 1200
 
 CMD ["./api"]
 

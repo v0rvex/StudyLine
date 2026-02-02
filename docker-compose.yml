@@ -24,7 +24,7 @@ services:
     env_file:
       - ./api/.env
     ports:
-      - "8080:8080"
+      - "1200:1200"
     depends_on:
       - db
       - redis
@@ -38,7 +38,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_API_URL: http://backend:8080
+      VITE_API_URL: http://backend:1200
 
 volumes:
   db_data:
